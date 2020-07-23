@@ -18,6 +18,12 @@ using namespace std;
 #include "slic.h"
 
 int main(int argc, char *argv[]) {
+
+    if( argc != 5) {
+      fprintf(stderr, "Wrong, usage: %s <filename> <K-size> <M-size> <outfilename>\n", argv[0]);
+      return -1;
+    }
+
     /* Load the image and convert to Lab colour space. */
     IplImage *image = cvLoadImage(argv[1], 1);
     IplImage *lab_image = cvCloneImage(image);
